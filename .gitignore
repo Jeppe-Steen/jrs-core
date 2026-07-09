@@ -1,0 +1,13 @@
+node_modules
+
+dist
+
+.playground
+
+.nuxt
+
+.output
+
+coverage
+
+*.log
