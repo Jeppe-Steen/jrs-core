@@ -1,6 +1,6 @@
 {
   "name": "@jrs/core",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Reusable Nuxt components and composables",
   "type": "module",
   "files": [
@@ -8,16 +8,14 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/module.d.ts",
-      "import": "./dist/module.mjs"
+      "import": "./dist/module.mjs",
+      "types": "./dist/module.d.mts"
     }
   },
-  "main": "./dist/module.mjs",
-  "types": "./dist/module.d.ts",
   "scripts": {
     "dev": "nuxt dev playground",
-    "build": "nuxt-module-build",
-    "prepack": "nuxt-module-build"
+    "build": "nuxt-module-build build",
+    "prepack": "pnpm build"
   },
   "peerDependencies": {
     "nuxt": "^4.0.0"
@@ -29,6 +27,7 @@
     "sass": "1.94.0",
     "typescript": "^5.0.0",
     "vite": "^7.0.0",
-    "vue": "^3.5.0"
+    "vue": "^3.5.0",
+    "vue-tsc": "^3.3.7"
   }
 }
