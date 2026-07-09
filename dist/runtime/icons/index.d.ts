@@ -1,0 +1,9 @@
+export { default as check } from './check.vue.js';
+export { default as clock } from './clock.vue.js';
+export { default as document } from './document.vue.js';
+export { default as download } from './download.vue.js';
+export { default as lightbulb } from './lightbulb.vue.js';
+export { default as pen } from './pen.vue.js';
+export { default as plus } from './plus.vue.js';
+export { default as settings } from './settings.vue.js';
+export { default as shop } from './shop.vue.js';
