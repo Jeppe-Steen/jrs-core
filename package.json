@@ -14,8 +14,7 @@
   },
   "scripts": {
     "dev": "nuxt dev playground",
-    "build": "nuxt-module-build build",
-    "prepack": "pnpm build"
+    "build": "nuxt-module-build build"
   },
   "peerDependencies": {
     "nuxt": "^4.0.0"
