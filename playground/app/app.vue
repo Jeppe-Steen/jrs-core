@@ -4,7 +4,6 @@ const { openDialog , values, closeDialog} = useDialog()
 
 const nav = [
   { label: 'Hjem', to: '/', styling: 'primary' },
-  { label: 'videre', to: '/', styling: 'secondary' },
 ]
 
 const changeableText = ref('Dette er en tekst som kan ændres')
@@ -47,7 +46,11 @@ const handleDialog2 = async () => {
   <div class="container">
     <UiNavigation :navItems="nav">
       <template #logo>
-        <h2>Heeeey</h2>
+        <h2>LOGO</h2>
+      </template>
+
+      <template #extra>
+        <UiButton label="Knap" />
       </template>
 
       <template #links>
@@ -64,35 +67,6 @@ const handleDialog2 = async () => {
 
     <main>
       <div class="center">
-        <UiHeader description="Dette er en test af UiHeader komponenten">
-          <template #header>
-            <h2>Velkommen til min app</h2>
-          </template>
-        </UiHeader>
-
-        <ul>
-          <li>
-            <span>
-              <p><strong>UiDialog:</strong></p>
-              <UiButton label="UiDialog - Standard" @click="openDialog(objectForDialog_standard)"/>
-              <UiButton label="UiDialog - Input" @click="handleDialog2"/>
-            </span>
-            <p>{{ changeableText }}</p>
-          </li>
-          <li>
-            <span>
-              <p><strong>UiIcon:</strong></p>
-              <UiIcon name="plus" />
-              <UiIcon name="menu" />
-              <UiIcon name="close" />
-              <UiIcon name="pen" />
-              <UiIcon name="shop" />
-              <UiIcon name="document" color="#F5D95B" />
-              <UiIcon name="lightbulb" color="#29781F" background="#29781F30" rounded/>
-            </span>
-          </li>
-        </ul>
-        
       </div>
     </main>
 
@@ -112,31 +86,25 @@ const handleDialog2 = async () => {
 
     main {
       display: grid;
-      grid-template-columns: auto 60% auto;
-      grid-template-areas: '. center .';
+      grid-template-columns: 100%;
+      grid-template-areas: 'center';
+
+      @media (min-width: 1200px) {
+        grid-template-columns: auto 60% auto;
+        grid-template-areas: '. center .';
+      }
 
       .center {
         grid-area: center;
-        padding: 2rem;
+        padding: 1rem;
+
+        @media (min-width: 1200px) {
+          padding: 2rem;
+        }
 
         display: flex;
         flex-direction: column;
         gap: 2rem;
-
-        ul {
-          li {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-
-            span {
-              display: flex;
-              flex-direction: row;
-              gap: 1rem;
-              align-items: center;
-            }
-          }
-        }
       }
     }
   }
