@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+html {
+    font-family: "Open Sans", sans-serif;
+}
+
+:root {
+    --background-color: #FAFAFA;
+    --background-reversed: #0D0E10;
+
+    --text-color-1: #0D0E10;
+    --text-color-2: #FAFAFA;
+
+    --border-color: #adadad;
+    --card-background: #f5f5f5;
+    --card-background-reversed: #141618;
+
+    --input-background: #e0e0e0;
+
+    --btn-primary: #0D0E10;
+    --btn-secondary: #FAFAFA;
+    --btn-danger: #e23b3b;
+    --btn-caution: yellow;
+    --btn-cta: #00BA34;
+    --btn-link: transparent;
+
+    --table-data-1: #dcdcdc;
+    --table-data-2: #c1c1c1;
+}
+
+body.dark {
+    --text-color-1: #FAFAFA;
+    --text-color-2: #0D0E10;
+    
+    --border-color: #313233;
+    --card-background: #141618;
+    --card-background-reversed: #e5e5e5;
+
+    --background-color: #0D0E10;
+    --background-reversed: #FAFAFA;
+
+    --input-background: #e0e0e0;
+
+    --btn-primary: #FAFAFA;
+    --btn-secondary: #0D0E10;
+    --btn-danger: #d03f3f;
+    --btn-caution: yellow;
+    --btn-cta: #17CB49;
+    --btn-link: transparent;
+
+    --table-data-1: #373737;
+    --table-data-2: #2c2c2c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+hr { background-color: black; height: 1px; border: 0; }

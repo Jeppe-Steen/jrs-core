@@ -22,5 +22,9 @@ export default defineNuxtModule({
     addImportsDir(
       resolver.resolve('./runtime/composables')
     )
+
+    nuxt.options.css.push(
+      resolver.resolve('./runtime/assets/scss/main.css')
+    )
   }
 })
