@@ -69,7 +69,7 @@ const handleDialog2 = async () => {
             <h2>Velkommen til min app</h2>
           </template>
         </UiHeader>
-        
+
         <ul>
           <li>
             <span>
@@ -83,6 +83,10 @@ const handleDialog2 = async () => {
             <span>
               <p><strong>UiIcon:</strong></p>
               <UiIcon name="plus" />
+              <UiIcon name="pen" />
+              <UiIcon name="shop" />
+              <UiIcon name="document" color="#F5D95B" />
+              <UiIcon name="lightbulb" color="#29781F" background="#29781F30" rounded/>
             </span>
           </li>
         </ul>
