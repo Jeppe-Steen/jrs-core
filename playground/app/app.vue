@@ -83,6 +83,8 @@ const handleDialog2 = async () => {
             <span>
               <p><strong>UiIcon:</strong></p>
               <UiIcon name="plus" />
+              <UiIcon name="menu" />
+              <UiIcon name="close" />
               <UiIcon name="pen" />
               <UiIcon name="shop" />
               <UiIcon name="document" color="#F5D95B" />
