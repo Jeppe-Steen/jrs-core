@@ -83,6 +83,17 @@
             display: flex;
         }
 
+        @media (min-width: 1200px) {
+            position: unset;
+            width: auto;
+            display: flex;
+            flex-direction: row;
+            height: fit-content;
+            gap: 1rem;
+            padding: unset;
+            background-color: transparent;
+        }
+
         &--close {
             display: flex;
             position: absolute;
