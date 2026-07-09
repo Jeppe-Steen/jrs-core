@@ -64,7 +64,12 @@ const handleDialog2 = async () => {
 
     <main>
       <div class="center">
-        <h1>Dette er en test side - hvor man kan teste en masse!</h1>
+        <UiHeader description="Dette er en test af UiHeader komponenten">
+          <template #header>
+            <h2>Velkommen til min app</h2>
+          </template>
+        </UiHeader>
+        
         <ul>
           <li>
             <span>

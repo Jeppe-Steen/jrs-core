@@ -1,6 +1,6 @@
 {
   "name": "@jrs/core",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Reusable Nuxt components and composables",
   "type": "module",
   "files": [
