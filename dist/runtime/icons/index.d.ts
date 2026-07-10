@@ -7,3 +7,5 @@ export { default as pen } from './pen.vue.js';
 export { default as plus } from './plus.vue.js';
 export { default as settings } from './settings.vue.js';
 export { default as shop } from './shop.vue.js';
+export { default as menu } from './menu.vue.js';
+export { default as close } from './close.vue.js';
