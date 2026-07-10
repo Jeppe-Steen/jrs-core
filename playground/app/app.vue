@@ -3,7 +3,9 @@ import {useDialog} from '../../src/runtime/composables/useDialog';
 const { openDialog , values, closeDialog} = useDialog()
 
 const nav = [
-  { label: 'Hjem', to: '/', styling: 'primary' },
+  { label: 'Hjem', to: '/', styling: 'link' },
+  { label: 'Om os', to: '/', styling: 'link' },
+  { label: 'Hjælp', to: '/', styling: 'primary' },
 ]
 
 const changeableText = ref('Dette er en tekst som kan ændres')
@@ -44,7 +46,7 @@ const handleDialog2 = async () => {
 
 <template>
   <div class="container">
-    <UiNavigation :navItems="nav">
+    <UiNavigation :navItems="nav" extra>
       <template #logo>
         <h2>LOGO</h2>
       </template>
@@ -77,7 +79,7 @@ const handleDialog2 = async () => {
 <style lang="scss" scoped>
 
   .container {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     background-color: var(--background-color);
     

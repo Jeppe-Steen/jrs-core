@@ -1,4 +1,8 @@
 <script setup lang="ts">
+    const props = defineProps<{
+        extra?: boolean
+    }>()
+
     const opned = ref(false);
     const setOpned = (value: boolean) => {
         opned.value = value;
@@ -7,21 +11,17 @@
 
 <template>
     <nav class="ui-navigation">
-        <span class="ui-navigation--extra">
+        <span v-show="props.extra" class="ui-navigation--extra">
             <slot name="extra"></slot>
         </span>
 
         <slot name="logo"></slot>
 
-        <span @click="setOpned(true)" class="ui-navigation--menu">
-            <UiIcon name="menu" :size="40"/>
+        <span @click="setOpned(!opned)" class="ui-navigation--menu">
+            <UiIcon :name="opned ? 'close' : 'menu'" :size="40"/>
         </span>
 
         <span class="ui-navigation--links" :class="{ 'opened': opned }">
-            <span @click="setOpned(false)" class="ui-navigation--links--close">
-                <UiIcon name="close" :size="40"/>
-            </span>
-
             <slot name="links"></slot>
         </span>
     </nav>
@@ -34,6 +34,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-direction: row;
     padding: 0 2rem;
 
     position: sticky;
@@ -50,6 +51,7 @@
 
     &--menu {
         display: flex;
+        z-index: 1001;
 
         @media (min-width: 1200px) {
             display: none;
@@ -68,16 +70,21 @@
         position: fixed;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         background-color: var(--background-color);
 
         display: none;
         flex-direction: column;
-        padding: 2rem;
         gap: 1rem;
         justify-content: center;
-        alin-items: center;
+
+        padding: 2rem;
+
+        @media (min-width: 1200px) {
+            display: flex;
+            padding: unset;
+        }
 
         &.opened {
             display: flex;
@@ -92,18 +99,6 @@
             gap: 1rem;
             padding: unset;
             background-color: transparent;
-        }
-
-        &--close {
-            display: flex;
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            cursor: pointer;
-
-            @media (min-width: 1200px) {
-                display: none;
-            }
         }
     }
 }
