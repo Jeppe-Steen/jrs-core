@@ -14,6 +14,8 @@ html {
     --ui-border-1: #adadad;
 
     --ui-input-1: #e0e0e0;
+    --ui-navigation: #FAFAFA;
+    --ui-footer: #FAFAFA;
 
     --ui-btn-1: #0D0E10;
     --ui-btn-2: #FAFAFA;
@@ -59,6 +61,8 @@ body.dark {
     --ui-border-1: #313233;
 
     --ui-input-1: #e0e0e0;
+    --ui-navigation: #0D0E10;
+    --ui-footer: #0D0E10;
 
     --ui-btn-1: #FAFAFA;
     --ui-btn-2: #0D0E10;

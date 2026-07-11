@@ -9,7 +9,7 @@
 
 <style lang="scss" scoped>
     .ui-footer {
-        background-color: var(--ui-background-1);
+        background-color: var(--ui-footer);
         width: 100%;
         min-height: 20vh;
         border-top: 1px solid var(--ui-border-1);

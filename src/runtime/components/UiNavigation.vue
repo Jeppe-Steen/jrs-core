@@ -31,7 +31,7 @@
 
 <style lang="scss" scoped>
 .ui-navigation {
-    background-color: var(--ui-background-1);
+    background-color: var(--ui-navigation);
     height: 8vh;
     display: flex;
     align-items: center;
