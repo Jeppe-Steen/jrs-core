@@ -81,7 +81,7 @@ const emit = defineEmits(["click"]);
 .ui-btn--medium {
   padding: 0.5rem 2rem;
 }
-.ui-btn--big {
+.ui-btn--large {
   width: 100%;
   padding: 1rem 2rem;
 }

@@ -80,6 +80,6 @@ const emit = defineEmits<{
     // btn sizes
     &--small { padding: .5rem 1rem; }
     &--medium { padding: .5rem 2rem; }
-    &--big { width: 100%; padding: 1rem 2rem; }
+    &--large { width: 100%; padding: 1rem 2rem; }
 }
 </style>
