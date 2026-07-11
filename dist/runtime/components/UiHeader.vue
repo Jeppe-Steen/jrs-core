@@ -18,7 +18,7 @@ const props = defineProps({
 .ui-header {
   width: 100%;
   margin-bottom: 1rem;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--ui-background-1);
+  color: var(--ui-text-1);
 }
 </style>

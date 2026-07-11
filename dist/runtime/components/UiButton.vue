@@ -44,33 +44,33 @@ const emit = defineEmits(["click"]);
   border-radius: 10px;
   border: none;
   text-decoration: none;
-  color: var(--text-color-1);
+  color: var(--ui-text-1);
   font-size: 1rem;
   font-weight: normal;
 }
 .ui-btn--primary {
-  background-color: var(--btn-primary);
-  color: var(--text-color-2) !important;
+  background-color: var(--ui-btn-1);
+  color: var(--ui-text-2) !important;
 }
 .ui-btn--primary span a {
-  color: var(--text-color-2) !important;
+  color: var(--ui-text-2) !important;
 }
 .ui-btn--secondary {
-  background-color: var(--btn-secondary);
-  border: 1px solid var(--border-color);
-  color: var(--text-color-1);
+  background-color: var(--ui-btn-2);
+  border: 1px solid var(--ui-border-1);
+  color: var(--ui-text-1);
 }
 .ui-btn--danger {
-  background-color: var(--btn-danger);
+  background-color: var(--ui-btn-3);
 }
 .ui-btn--caution {
-  background-color: var(--btn-caution);
+  background-color: var(--ui-btn-4);
 }
 .ui-btn--cta {
-  background-color: var(--btn-cta);
+  background-color: var(--ui-btn-5);
 }
 .ui-btn--link {
-  background-color: var(--btn-link);
+  background-color: var(--ui-btn-6);
 }
 .ui-btn--transparent {
   background-color: transparent;

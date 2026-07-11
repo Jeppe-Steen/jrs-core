@@ -81,7 +81,7 @@ const handleDialog2 = async () => {
   .container {
     width: 100vw;
     height: 100vh;
-    background-color: var(--background-color);
+    background-color: var(--ui-background-1);
     
     display: flex;
     flex-direction: column;

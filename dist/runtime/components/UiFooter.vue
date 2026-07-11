@@ -6,9 +6,9 @@
 
 <style scoped>
 .ui-footer {
-  background-color: var(--background-color);
+  background-color: var(--ui-background-1);
   width: 100%;
   min-height: 20vh;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--ui-border-1);
 }
 </style>

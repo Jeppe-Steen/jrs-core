@@ -53,28 +53,28 @@ const emit = defineEmits<{
     border-radius: 10px;
     border: none;
     text-decoration: none;
-    color: var(--text-color-1);
+    color: var(--ui-text-1);
     font-size: 1rem;
     font-weight: normal; 
 
     
     // btn types
     &--primary { 
-        background-color: var(--btn-primary); 
-        color: var(--text-color-2) !important; 
+        background-color: var(--ui-btn-1); 
+        color: var(--ui-text-2) !important; 
 
         span {
             a {
-                color: var(--text-color-2) !important;
+                color: var(--ui-text-2) !important;
             }
         }
     }
 
-    &--secondary { background-color: var(--btn-secondary); border: 1px solid var(--border-color); color: var(--text-color-1); }
-    &--danger { background-color: var(--btn-danger); }
-    &--caution { background-color: var(--btn-caution); }
-    &--cta { background-color: var(--btn-cta); }
-    &--link { background-color: var(--btn-link); }
+    &--secondary { background-color: var(--ui-btn-2); border: 1px solid var(--ui-border-1); color: var(--ui-text-1); }
+    &--danger { background-color: var(--ui-btn-3); }
+    &--caution { background-color: var(--ui-btn-4); }
+    &--cta { background-color: var(--ui-btn-5); }
+    &--link { background-color: var(--ui-btn-6); }
     &--transparent { background-color: transparent; }
 
     // btn sizes

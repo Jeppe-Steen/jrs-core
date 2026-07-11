@@ -74,7 +74,7 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            color: var(--text-color-1);
+            color: var(--ui-text-1);
             border-radius: 20px;
 
             footer {

@@ -35,12 +35,12 @@ const emit = defineEmits(["update:modelValue"]);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  color: var(--text-color-1);
+  color: var(--ui-text-1);
 }
 .ui-input input {
   width: 100%;
   padding: 1rem;
-  background-color: var(--input-background);
+  background-color: var(--ui-background-1);
   border: none;
 }
 .ui-input .rounded {
