@@ -4,6 +4,10 @@ html {
     font-family: "Open Sans", sans-serif;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 :root {
     --ui-background-primary: #FAFAFA;
     --ui-background-secondary:  #0D0E10;
@@ -23,7 +27,6 @@ html {
     --ui-navigation-background: #FAFAFA;
     --ui-navigation-border: #adadad;
     --ui-navigation-menu-background: #FAFAFA;
-
 
     /* footer */
     --ui-footer-background: #FAFAFA;
@@ -57,6 +60,9 @@ html {
     /* cards */
     --ui-card-background: #f5f5f5;
     --ui-card-color: #0D0E10;
+
+    /* dialog */
+    --ui-dialog-background: #FAFAFA;
 }
 
 * {

@@ -3,6 +3,8 @@ type __VLS_Props = {
     to?: string;
     type?: 'primary' | 'secondary' | 'danger' | 'caution' | 'cta' | 'link' | 'transparent';
     size?: 'small' | 'medium' | 'large';
+    submit?: boolean;
+    icon?: string;
 };
 declare const __VLS_export: import("vue").DefineComponent<__VLS_Props, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {} & {
     click: (event: MouseEvent) => any;

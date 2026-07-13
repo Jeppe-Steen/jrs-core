@@ -1,41 +1,43 @@
-import { useState } from "#imports";
+import {
+  useState
+} from "#imports";
+import { markRaw } from "vue";
 export const useDialog = () => {
   const isOpen = useState("dialog-open", () => false);
-  const content = useState("dialog-content", () => ({
-    title: "",
-    message: "",
-    fields: [],
-    actions: []
-  }));
-  const values = useState("dialog-values", () => ({}));
+  const component = useState(
+    "dialog-component",
+    () => null
+  );
+  const props = useState(
+    "dialog-props",
+    () => ({})
+  );
   const resolver = useState(
     "dialog-resolver",
     () => null
   );
-  const openDialog = (items) => {
-    content.value = items;
+  const open = (dialog, dialogProps = {}) => {
+    component.value = markRaw(dialog);
+    props.value = dialogProps;
     isOpen.value = true;
-    values.value = {};
-    items?.fields?.forEach((field) => {
-      values.value[field.key] = "";
-    });
+    document.body.classList.add("modal-open");
     return new Promise((resolve) => {
       resolver.value = resolve;
     });
   };
-  const closeDialog = (action) => {
+  const close = (result) => {
     isOpen.value = false;
-    resolver.value?.({
-      action,
-      values: { ...values.value }
-    });
+    resolver.value?.(result);
     resolver.value = null;
+    component.value = null;
+    props.value = {};
+    document.body.classList.remove("modal-open");
   };
   return {
     isOpen,
-    content,
-    values,
-    openDialog,
-    closeDialog
+    component,
+    props,
+    open,
+    close
   };
 };

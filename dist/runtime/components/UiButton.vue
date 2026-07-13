@@ -3,7 +3,9 @@ const props = defineProps({
   label: { type: String, required: true },
   to: { type: String, required: false },
   type: { type: String, required: false, default: "primary" },
-  size: { type: String, required: false, default: "small" }
+  size: { type: String, required: false, default: "small" },
+  submit: { type: Boolean, required: false },
+  icon: { type: String, required: false }
 });
 const emit = defineEmits(["click"]);
 </script>
@@ -19,19 +21,24 @@ const emit = defineEmits(["click"]);
 ]"
   >
     {{ label }}
+    <UiIcon v-if="props?.icon" :name="props?.icon" />
   </NuxtLink>
 
   <button
     v-else
-    type="button"
+    :type="submit ? 'submit' : 'button'"
     class="ui-btn"
     :class="[
   `ui-btn--${type}`,
-  `ui-btn--${size}`
+  `ui-btn--${size}`,
+  {
+    'ui-btn--icon': props?.icon
+  }
 ]"
     @click="emit('click', $event)"
   >
     {{ label }}
+    <UiIcon v-if="props?.icon" :name="props?.icon" />
   </button>
 </template>
 
@@ -39,6 +46,7 @@ const emit = defineEmits(["click"]);
 .ui-btn {
   cursor: pointer;
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   border-radius: 10px;
@@ -47,6 +55,11 @@ const emit = defineEmits(["click"]);
   color: var(--ui-text-1);
   font-size: 1rem;
   font-weight: normal;
+  position: relative;
+}
+.ui-btn--icon {
+  justify-content: space-between;
+  gap: 1rem;
 }
 .ui-btn--primary {
   background-color: var(--ui-btn-primary-background);
@@ -61,7 +74,7 @@ const emit = defineEmits(["click"]);
   color: var(--ui-btn-secondary-color);
 }
 .ui-btn--danger {
-  background-color: var(--ui-danger-background);
+  background-color: var(--ui-btn-danger-background);
   color: var(--ui-btn-danger-color);
 }
 .ui-btn--caution {

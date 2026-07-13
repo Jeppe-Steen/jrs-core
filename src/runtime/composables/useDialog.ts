@@ -1,55 +1,59 @@
-import { useState } from '#imports'
+import {
+  shallowRef,
+  useState,
+  type Component
+} from '#imports'
+
+import { markRaw } from 'vue'
 
 export const useDialog = () => {
   const isOpen = useState('dialog-open', () => false)
 
-  const content = useState<any>('dialog-content', () => ({
-    title: '',
-    message: '',
-    fields: [],
-    actions: [],
-  }))
+  const component = useState<Component | null>(
+    'dialog-component',
+    () => null
+  )
 
-  const values = useState<Record<string, any>>('dialog-values', () => ({}))
+  const props = useState<Record<string, any>>(
+    'dialog-props',
+    () => ({})
+  )
 
   const resolver = useState<((value: any) => void) | null>(
     'dialog-resolver',
     () => null
   )
 
-  const openDialog = (items: any) => {
-    content.value = items
+  const open = ( dialog: Component, dialogProps: Record<string, any> = {}) => {
+    component.value = markRaw(dialog)
+    props.value = dialogProps
     isOpen.value = true
 
-    values.value = {}
-
-    // if there is fields it oremakes the values
-    items?.fields?.forEach((field: any) => {
-        values.value[field.key] = ''
-    })
+    document.body.classList.add('modal-open');
 
     return new Promise(resolve => {
       resolver.value = resolve
     })
   }
 
-  const closeDialog = (action: string) => {
+  const close = (result?: any) => {
     isOpen.value = false
 
-    resolver.value?.({
-      action,
-      values: { ...values.value }
-    })
+    resolver.value?.(result)
 
     resolver.value = null
+    component.value = null
+    props.value = {}
+
+    document.body.classList.remove('modal-open');
   }
 
   return {
-      isOpen,
-      content,
-      values,
+    isOpen,
+    component,
+    props,
 
-      openDialog,
-      closeDialog
+    open,
+    close
   }
 }

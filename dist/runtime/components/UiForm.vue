@@ -1,17 +1,33 @@
 <script setup>
-import { provide } from "vue";
+import { provide, reactive } from "vue";
+const props = defineProps({
+  action: { type: String, required: false },
+  method: { type: String, required: false }
+});
 const fields = [];
-const register = (name) => {
-  fields.push(name);
-  console.log(fields);
+const errors = reactive({});
+const register = (field) => {
+  fields.push(field);
 };
 provide("ui-form", {
-  register
+  register,
+  errors
 });
+const emit = defineEmits(["submit"]);
+const submit = () => {
+  let valid = true;
+  for (const field of fields) {
+    if (!field.validate()) {
+      valid = false;
+    }
+  }
+  if (!valid) return;
+  emit("submit");
+};
 </script>
 
 <template>
-  <form>
+  <form @submit.prevent="submit" :action="props?.action" :method="props?.method">
     <slot />
   </form>
 </template>

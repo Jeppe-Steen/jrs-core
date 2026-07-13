@@ -4,7 +4,7 @@ type __VLS_Props = {
     modelValue: string | number;
     placeholder?: string;
     rounded?: boolean;
-    transparent?: boolena;
+    transparent?: boolean;
     type?: string;
     required?: boolean;
 };

@@ -7,14 +7,29 @@ const props = defineProps({
   modelValue: { type: [String, Number], required: true },
   placeholder: { type: String, required: false },
   rounded: { type: Boolean, required: false },
-  transparent: { type: null, required: false },
+  transparent: { type: Boolean, required: false },
   type: { type: String, required: false },
   required: { type: Boolean, required: false }
 });
+const validate = () => {
+  if (props.required && !props.modelValue) {
+    form.errors[props.name] = "Dette felt er p\xE5kr\xE6vet";
+    return false;
+  }
+  form.errors[props.name] = "";
+  return true;
+};
 onMounted(() => {
-  form?.register(props.name);
+  form?.register({
+    name: props?.name,
+    validate
+  });
 });
 const emit = defineEmits(["update:modelValue"]);
+const onInput = (event) => {
+  const target = event.target;
+  emit("update:modelValue", target.value);
+};
 </script>
 
 <template>
@@ -28,14 +43,20 @@ const emit = defineEmits(["update:modelValue"]);
       :value="modelValue"
       :placeholder="placeholder"
       :type="type"
-      :required="required"
-      @input="emit('update:modelValue', $event.target.value)"
+      @input="onInput"
 
       :class="{
   'rounded': rounded,
   'transparent': transparent
 }"
     >
+
+    <small
+      v-if="form?.errors[props.name]"
+      class="error"
+    >
+      {{ form.errors[props.name] }}
+    </small>
   </label>
 </template>
 
@@ -58,5 +79,8 @@ const emit = defineEmits(["update:modelValue"]);
 }
 .ui-input .transparent {
   background-color: transparent !important;
+}
+.ui-input .error {
+  color: var(--ui-btn-danger-background);
 }
 </style>

@@ -1,6 +1,8 @@
 <script setup>
-import {useDialog} from '../../src/runtime/composables/useDialog';
-const { openDialog , values, closeDialog} = useDialog()
+import standardDialog from './components/standardDialog.vue';
+import formDialog from './components/formDialog.vue';
+
+const dialog = useDialog();
 
 const nav = [
   { label: 'Hjem', to: '/', type: 'link' },
@@ -8,37 +10,14 @@ const nav = [
   { label: 'Hjælp', type: 'primary', icon: "star" },
 ]
 
-const changeableText = ref('Dette er en tekst som kan ændres')
-
-const objectForDialog_standard = {
-  title: 'Testing af dialog',
-  message: 'Dette er bare en test af UiDialog - for at lukke den igen, tryk uden for dialog boksen',
-  actions: [
-    { label: 'Luk', value: 'close' }
-  ]
+const openStandardDialog = async () => {
+  const result = await dialog.open(standardDialog);
+  console.log(result)
 }
-const handleDialog2 = async () => {
-  const result = await openDialog({
-    title: 'Testing af dialog med input',
-    message: 'Dette er bare en test af UiDialog - her er det muligt at ændre en tekst ude på forsiden. dette gøres ved hjælp af et input og nogle kanpper',
-    fields: [
-      { type: 'input', key: 'changeableText', props: { type: 'text', placeholder: 'Skriv noget her' } }
-    ],
-    actions: [
-      { label: 'Annuller', value: 'decline', styling: 'danger' },
-      { label: 'Accepter', value: 'success', styling: 'cta' },
-    ]
-  })
 
-  switch(result) {
-    case 'decline':
-      closeDialog(result)
-      return;
-    case 'success':
-      changeableText.value = values?.value.changeableText
-      closeDialog(result)
-      return
-  }
+const openFormDialog = async () => {
+  const result = await dialog.open(formDialog)
+  console.log(result)
 }
 
 const stars = {
@@ -131,6 +110,15 @@ const testSubmit1 = () => {
                 <UiInput placeholder="Email" name="email" rounded required v-model="testForm1.email"/>
                 <UiButton label="Log fields" submit icon="check"/>
               </UiForm>
+            </UiCard>
+
+            <UiCard shadow>
+              <UiHeader centered>
+                <template #subtitle><p>Åben dialog her</p></template>
+                <template #title><h3>DIALOG!</h3></template>
+              </UiHeader>
+              <UiButton label="Standard" type="cta" @click="openStandardDialog" />
+              <UiButton label="Form" type="danger" @click="openFormDialog" />
             </UiCard>
           </article>
         </section>

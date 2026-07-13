@@ -84,7 +84,7 @@ const emit = defineEmits<{
     }
 
     &--secondary { background-color: var(--ui-btn-secondary-background); border: 1px solid var(--ui-btn-secondary-border); color: var(--ui-btn-secondary-color); }
-    &--danger { background-color: var(--ui-danger-background); color: var(--ui-btn-danger-color) }
+    &--danger { background-color: var(--ui-btn-danger-background); color: var(--ui-btn-danger-color) }
     &--caution { background-color: var(--ui-btn-caution-background); color: var(--ui-btn-caution-color) }
     &--cta { background-color: var(--ui-btn-cta-background); color: var(--ui-btn-cta-color) }
     &--link { background-color: var(--ui-btn-transparent-background); color: var(--ui-btn-transparent-color) }
