@@ -5,6 +5,8 @@ const props = withDefaults(
     to?: string
     type?: 'primary' | 'secondary' | 'danger' | 'caution' | 'cta' | 'link' | 'transparent'
     size?: 'small' | 'medium' | 'large'
+    submit?: boolean
+    icon?: string
   }>(),
   {
     type: 'primary',
@@ -28,19 +30,24 @@ const emit = defineEmits<{
     ]"
   >
     {{ label }}
+    <UiIcon v-if="props?.icon" :name="props?.icon" />
   </NuxtLink>
 
   <button
     v-else
-    type="button"
+    :type="submit ? 'submit' : 'button'"
     class="ui-btn"
     :class="[
       `ui-btn--${type}`,
-      `ui-btn--${size}`
+      `ui-btn--${size}`,
+      {
+        'ui-btn--icon': props?.icon
+      }
     ]"
     @click="emit('click', $event)"
   >
     {{ label }}
+    <UiIcon v-if="props?.icon" :name="props?.icon" />
   </button>
 </template>
  
@@ -48,6 +55,7 @@ const emit = defineEmits<{
 .ui-btn {
     cursor: pointer;
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
@@ -56,7 +64,12 @@ const emit = defineEmits<{
     color: var(--ui-text-1);
     font-size: 1rem;
     font-weight: normal; 
+    position: relative;
 
+    &--icon {
+      justify-content: space-between;
+      gap: 1rem;
+    }
     
     // btn types
     &--primary { 

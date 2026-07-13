@@ -5,7 +5,7 @@ const { openDialog , values, closeDialog} = useDialog()
 const nav = [
   { label: 'Hjem', to: '/', type: 'link' },
   { label: 'Om os', to: '/', type: 'link' },
-  { label: 'Hjælp', to: '/', type: 'primary' },
+  { label: 'Hjælp', type: 'primary', icon: "star" },
 ]
 
 const changeableText = ref('Dette er en tekst som kan ændres')
@@ -48,6 +48,15 @@ const stars = {
   color: '#EFBF04'
 }
 
+const testForm1 = ref({
+  fullname: '',
+  email: ''
+})
+
+const testSubmit1 = () => {
+  console.log(testForm1.value)
+}
+
 </script>
 
 <template>
@@ -68,6 +77,7 @@ const stars = {
             :label="item.label"
             :to="item.to"
             :type="item.type"
+            :icon="item.icon"
             @click="item.action?.()"
           />
       </template>
@@ -116,9 +126,10 @@ const stars = {
           </UiHeader>
           <article class="forms--content">
             <UiCard shadow rounded>
-              <UiForm>
-                <UiInput name="fullname" placeholder="Fullname" rounded/>
-                <UiInput placeholder="Email" name="email" transparent rounded/>
+              <UiForm @submit="testSubmit1">
+                <UiInput name="fullname" placeholder="Fullname" rounded v-model="testForm1.fullname" required/>
+                <UiInput placeholder="Email" name="email" rounded required v-model="testForm1.email"/>
+                <UiButton label="Log fields" submit icon="check"/>
               </UiForm>
             </UiCard>
           </article>
@@ -184,7 +195,7 @@ const stars = {
 
     &--content {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr .6fr 1fr;
       gap: 1rem;
     }
   }

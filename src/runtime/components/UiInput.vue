@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import { inject, onMounted } from 'vue'
 
+type FormField = {
+  name: string
+  validate: () => boolean
+}
+
 const form = inject<{
-  register: (name: string) => void
+    register: (field: FormField) => void
+    errors: Record<string, string>
 }>('ui-form')
 
 const props = defineProps<{
@@ -16,13 +22,33 @@ const props = defineProps<{
   required?: boolean
 }>()
 
+const validate = () => {
+  if (props.required && !props.modelValue) {
+
+    form!.errors[props.name] = "Dette felt er påkrævet"
+    return false
+  }
+
+  form!.errors[props.name] = ""
+  return true
+}
+
 onMounted(() => {
-  form?.register(props.name)
+  form?.register({
+    name: props?.name,
+    validate
+  })
 })
 
 const emit = defineEmits<{
   'update:modelValue': [value: string]
 }>()
+
+const onInput = (event: Event) => {
+  const target = event.target as HTMLInputElement
+
+  emit('update:modelValue', target.value)
+}
 </script>
 
 <template>
@@ -36,14 +62,20 @@ const emit = defineEmits<{
       :value="modelValue"
       :placeholder="placeholder"
       :type="type"
-      :required="required"
-      @input="emit('update:modelValue', $event.target.value)"
+      @input="onInput"
 
       :class="{
         'rounded': rounded,
         'transparent': transparent,
       }"
     >
+
+    <small
+      v-if="form?.errors[props.name]"
+      class="error"
+    >
+      {{ form.errors[props.name] }}
+    </small>
   </label>
 </template>
 
@@ -69,6 +101,10 @@ const emit = defineEmits<{
 
         .transparent {
           background-color: transparent !important;
+        }
+
+        .error {
+          color: var(--ui-btn-danger-background);
         }
     }
 </style>
