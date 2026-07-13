@@ -12,13 +12,11 @@ const props = defineProps({
   color: { type: String, required: false },
   background: { type: String, required: false },
   size: { type: Number, required: false, default: 20 },
+  backgroundSize: { type: Number, required: false },
   padding: { type: Number, required: false, default: 0 },
   rounded: { type: Boolean, required: false, default: false }
 });
 const icon = computed(() => icons[props.name]);
-const backgroundSize = computed(() => {
-  return props.size + 15;
-});
 </script>
 
 <template>

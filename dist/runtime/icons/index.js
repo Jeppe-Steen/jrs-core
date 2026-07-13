@@ -9,3 +9,4 @@ export { default as settings } from "./settings.vue";
 export { default as shop } from "./shop.vue";
 export { default as menu } from "./menu.vue";
 export { default as close } from "./close.vue";
+export { default as star } from "./star.vue";

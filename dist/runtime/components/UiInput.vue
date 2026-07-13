@@ -1,11 +1,18 @@
 <script setup>
-defineProps({
+import { inject, onMounted } from "vue";
+const form = inject("ui-form");
+const props = defineProps({
+  name: { type: String, required: true },
   label: { type: String, required: false },
   modelValue: { type: [String, Number], required: true },
   placeholder: { type: String, required: false },
   rounded: { type: Boolean, required: false },
+  transparent: { type: null, required: false },
   type: { type: String, required: false },
   required: { type: Boolean, required: false }
+});
+onMounted(() => {
+  form?.register(props.name);
 });
 const emit = defineEmits(["update:modelValue"]);
 </script>
@@ -17,6 +24,7 @@ const emit = defineEmits(["update:modelValue"]);
     </span>
 
     <input
+      :name="name"
       :value="modelValue"
       :placeholder="placeholder"
       :type="type"
@@ -24,7 +32,8 @@ const emit = defineEmits(["update:modelValue"]);
       @input="emit('update:modelValue', $event.target.value)"
 
       :class="{
-  'rounded': rounded
+  'rounded': rounded,
+  'transparent': transparent
 }"
     >
   </label>
@@ -40,10 +49,14 @@ const emit = defineEmits(["update:modelValue"]);
 .ui-input input {
   width: 100%;
   padding: 1rem;
-  background-color: var(--ui-background-1);
+  background-color: var(--ui-input-background);
+  color: var(--ui-input-color);
   border: none;
 }
 .ui-input .rounded {
   border-radius: 10px;
+}
+.ui-input .transparent {
+  background-color: transparent !important;
 }
 </style>

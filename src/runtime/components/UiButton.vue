@@ -3,11 +3,11 @@ const props = withDefaults(
   defineProps<{
     label: string
     to?: string
-    styling?: 'primary' | 'secondary' | 'danger' | 'caution' | 'cta' | 'link' | 'transparent'
+    type?: 'primary' | 'secondary' | 'danger' | 'caution' | 'cta' | 'link' | 'transparent'
     size?: 'small' | 'medium' | 'large'
   }>(),
   {
-    styling: 'primary',
+    type: 'primary',
     size: 'small'
   }
 )
@@ -23,7 +23,7 @@ const emit = defineEmits<{
     :to="to"
     class="ui-btn"
     :class="[
-      `ui-btn--${styling}`,
+      `ui-btn--${type}`,
       `ui-btn--${size}`
     ]"
   >
@@ -35,7 +35,7 @@ const emit = defineEmits<{
     type="button"
     class="ui-btn"
     :class="[
-      `ui-btn--${styling}`,
+      `ui-btn--${type}`,
       `ui-btn--${size}`
     ]"
     @click="emit('click', $event)"
@@ -60,22 +60,22 @@ const emit = defineEmits<{
     
     // btn types
     &--primary { 
-        background-color: var(--ui-btn-1); 
-        color: var(--ui-text-2) !important; 
+        background-color: var(--ui-btn-primary-background); 
+        color: var(--ui-btn-primary-color) !important; 
 
         span {
             a {
-                color: var(--ui-text-2) !important;
+                color: var(--ui-btn-primary-color) !important;
             }
         }
     }
 
-    &--secondary { background-color: var(--ui-btn-2); border: 1px solid var(--ui-border-1); color: var(--ui-text-1); }
-    &--danger { background-color: var(--ui-btn-3); }
-    &--caution { background-color: var(--ui-btn-4); }
-    &--cta { background-color: var(--ui-btn-5); }
-    &--link { background-color: var(--ui-btn-6); }
-    &--transparent { background-color: transparent; }
+    &--secondary { background-color: var(--ui-btn-secondary-background); border: 1px solid var(--ui-btn-secondary-border); color: var(--ui-btn-secondary-color); }
+    &--danger { background-color: var(--ui-danger-background); color: var(--ui-btn-danger-color) }
+    &--caution { background-color: var(--ui-btn-caution-background); color: var(--ui-btn-caution-color) }
+    &--cta { background-color: var(--ui-btn-cta-background); color: var(--ui-btn-cta-color) }
+    &--link { background-color: var(--ui-btn-transparent-background); color: var(--ui-btn-transparent-color) }
+    &--transparent { background-color: var(--ui-btn-transparent-background); color: var(--ui-btn-transparent-color) }
 
     // btn sizes
     &--small { padding: .5rem 1rem; }

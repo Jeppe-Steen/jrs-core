@@ -7,13 +7,14 @@ type __VLS_Props = {
     color?: string;
     background?: string;
     size?: number;
+    backgroundSize?: number;
     padding?: number;
     rounded?: boolean;
 };
 declare const __VLS_export: import("vue").DefineComponent<__VLS_Props, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<__VLS_Props> & Readonly<{}>, {
     size: number;
-    padding: number;
     rounded: boolean;
+    padding: number;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: typeof __VLS_export;
 export default _default;

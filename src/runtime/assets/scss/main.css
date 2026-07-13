@@ -5,100 +5,58 @@ html {
 }
 
 :root {
-    --ui-background-1: #FAFAFA;
-    --ui-background-2:  #0D0E10;
+    --ui-background-primary: #FAFAFA;
+    --ui-background-secondary:  #0D0E10;
 
-    --ui-text-1: #0D0E10;
-    --ui-text-2: #FAFAFA;
+    --ui-text-primary: #0D0E10;
+    --ui-text-secondary: #FAFAFA;
+    --ui-text-custom: #ff00d0;
 
-    --ui-border-1: #adadad;
+    /* header */
+    --ui-header-color: #0D0E10;
+    
+    /* inputfields */
+    --ui-input-border: #adadad;
+    --ui-input-background: #ededed;
 
-    --ui-input-1: #e0e0e0;
-    --ui-navigation: #FAFAFA;
-    --ui-footer: #FAFAFA;
+    /* navigation */
+    --ui-navigation-background: #FAFAFA;
+    --ui-navigation-border: #adadad;
+    --ui-navigation-menu-background: #FAFAFA;
 
-    --ui-btn-1: #0D0E10;
-    --ui-btn-2: #FAFAFA;
-    --ui-btn-3: #e23b3b;
-    --ui-btn-4: yellow;
-    --ui-btn-5: #00BA34;
-    --ui-btn-6: transparent;
 
+    /* footer */
+    --ui-footer-background: #FAFAFA;
+    --ui-footer-color: #0D0E10;
+    --ui-footer-border: #adadad;
+
+    /* buttons */
+    --ui-btn-primary-background: #0D0E10;
+    --ui-btn-primary-color: #FAFAFA;
+
+    --ui-btn-secondary-background: #FAFAFA;
+    --ui-btn-secondary-color: #0D0E10;
+    --ui-btn-secondary-border: #0D0E10;
+
+    --ui-btn-danger-background: #e23b3b;
+    --ui-btn-danger-color: #FAFAFA;
+
+    --ui-btn-caution-background: yellow;
+    --ui-btn-caution-color: 0D0E10;
+
+    --ui-btn-cta-background: #00BA34;
+    --ui-btn-cta-color: #0D0E10;
+
+    --ui-btn-transparent-background: transparent;
+    --ui-btn-transparent-color: #0D0E10;
+
+    /* table */
     --ui-table-1: #dcdcdc;
     --ui-table-2: #c1c1c1;
 
-
-    /* --background-color: #FAFAFA;
-    --background-reversed: #0D0E10; */
-
-    /* --text-color-1: #0D0E10;
-    --text-color-2: #FAFAFA; */
-
-    /* --border-color: #adadad; */
-    --card-background: #f5f5f5;
-    --card-background-reversed: #141618;
-
-    /* --input-background: #e0e0e0; */
-
-    /* --btn-primary: #0D0E10;
-    --btn-secondary: #FAFAFA;
-    --btn-danger: #e23b3b;
-    --btn-caution: yellow;
-    --btn-cta: #00BA34;
-    --btn-link: transparent; */
-
-    /* --table-data-1: #dcdcdc;
-    --table-data-2: #c1c1c1; */
-}
-
-body.dark {
-    --ui-background-1: #0D0E10;
-    --ui-background-2:  #FAFAFA;
-
-    --ui-text-1: #FAFAFA;
-    --ui-text-2: #0D0E10;
-
-    --ui-border-1: #313233;
-
-    --ui-input-1: #e0e0e0;
-    --ui-navigation: #0D0E10;
-    --ui-footer: #0D0E10;
-
-    --ui-btn-1: #FAFAFA;
-    --ui-btn-2: #0D0E10;
-    --ui-btn-3: #d03f3f;
-    --ui-btn-4: yellow;
-    --ui-btn-5: #17CB49;
-    --ui-btn-6: transparent;
-
-    --ui-table-1: #373737;
-    --ui-table-2: #2c2c2c;
-
-
-
-
-
-    /* --text-color-1: #FAFAFA;
-    --text-color-2: #0D0E10; */
-    
-    /* --border-color: #313233; */
-    --card-background: #141618;
-    --card-background-reversed: #e5e5e5;
-
-    /* --background-color: #0D0E10;
-    --background-reversed: #FAFAFA; */
-
-    /* --input-background: #e0e0e0; */
-
-    /* --btn-primary: #FAFAFA;
-    --btn-secondary: #0D0E10;
-    --btn-danger: #d03f3f;
-    --btn-caution: yellow;
-    --btn-cta: #17CB49;
-    --btn-link: transparent;
-
-    --table-data-1: #373737;
-    --table-data-2: #2c2c2c; */
+    /* cards */
+    --ui-card-background: #f5f5f5;
+    --ui-card-color: #0D0E10;
 }
 
 * {

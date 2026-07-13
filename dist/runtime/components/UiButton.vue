@@ -2,7 +2,7 @@
 const props = defineProps({
   label: { type: String, required: true },
   to: { type: String, required: false },
-  styling: { type: String, required: false, default: "primary" },
+  type: { type: String, required: false, default: "primary" },
   size: { type: String, required: false, default: "small" }
 });
 const emit = defineEmits(["click"]);
@@ -14,7 +14,7 @@ const emit = defineEmits(["click"]);
     :to="to"
     class="ui-btn"
     :class="[
-  `ui-btn--${styling}`,
+  `ui-btn--${type}`,
   `ui-btn--${size}`
 ]"
   >
@@ -26,7 +26,7 @@ const emit = defineEmits(["click"]);
     type="button"
     class="ui-btn"
     :class="[
-  `ui-btn--${styling}`,
+  `ui-btn--${type}`,
   `ui-btn--${size}`
 ]"
     @click="emit('click', $event)"
@@ -49,31 +49,36 @@ const emit = defineEmits(["click"]);
   font-weight: normal;
 }
 .ui-btn--primary {
-  background-color: var(--ui-btn-1);
-  color: var(--ui-text-2) !important;
+  background-color: var(--ui-btn-primary-background);
+  color: var(--ui-btn-primary-color) !important;
 }
 .ui-btn--primary span a {
-  color: var(--ui-text-2) !important;
+  color: var(--ui-btn-primary-color) !important;
 }
 .ui-btn--secondary {
-  background-color: var(--ui-btn-2);
-  border: 1px solid var(--ui-border-1);
-  color: var(--ui-text-1);
+  background-color: var(--ui-btn-secondary-background);
+  border: 1px solid var(--ui-btn-secondary-border);
+  color: var(--ui-btn-secondary-color);
 }
 .ui-btn--danger {
-  background-color: var(--ui-btn-3);
+  background-color: var(--ui-danger-background);
+  color: var(--ui-btn-danger-color);
 }
 .ui-btn--caution {
-  background-color: var(--ui-btn-4);
+  background-color: var(--ui-btn-caution-background);
+  color: var(--ui-btn-caution-color);
 }
 .ui-btn--cta {
-  background-color: var(--ui-btn-5);
+  background-color: var(--ui-btn-cta-background);
+  color: var(--ui-btn-cta-color);
 }
 .ui-btn--link {
-  background-color: var(--ui-btn-6);
+  background-color: var(--ui-btn-transparent-background);
+  color: var(--ui-btn-transparent-color);
 }
 .ui-btn--transparent {
-  background-color: transparent;
+  background-color: var(--ui-btn-transparent-background);
+  color: var(--ui-btn-transparent-color);
 }
 .ui-btn--small {
   padding: 0.5rem 1rem;

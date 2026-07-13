@@ -1,8 +1,10 @@
 type __VLS_Props = {
+    name: string;
     label?: string;
     modelValue: string | number;
     placeholder?: string;
     rounded?: boolean;
+    transparent?: boolena;
     type?: string;
     required?: boolean;
 };

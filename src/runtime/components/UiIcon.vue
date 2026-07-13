@@ -22,6 +22,7 @@ const props = withDefaults(
     background?: string
 
     size?: number
+    backgroundSize?: number
     padding?: number
 
     rounded?: boolean
@@ -34,9 +35,6 @@ const props = withDefaults(
 )
 
 const icon = computed(() => icons[props.name])
-const backgroundSize = computed(() => {
-    return props.size + 15;
-})
 </script>
 
 <template>

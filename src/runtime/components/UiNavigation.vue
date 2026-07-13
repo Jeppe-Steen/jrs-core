@@ -31,7 +31,7 @@
 
 <style lang="scss" scoped>
 .ui-navigation {
-    background-color: var(--ui-navigation);
+    background-color: var(--ui-navigation-background);
     height: 8vh;
     display: flex;
     align-items: center;
@@ -45,7 +45,7 @@
     width: 100%;
     z-index: 1000;
 
-    border-bottom: 1px solid var(--ui-border-1);
+    border-bottom: 1px solid var(--ui-navigation-border);
 
     @media (min-width: 1200px) {
         padding: 0 100px;
@@ -74,7 +74,7 @@
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: var(--ui-background-1);
+        background-color: transparent;
 
         display: none;
         flex-direction: column;
@@ -90,6 +90,7 @@
 
         &.opened {
             display: flex;
+            background-color: var(--ui-navigation-menu-background);
         }
 
         @media (min-width: 1200px) {

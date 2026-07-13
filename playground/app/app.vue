@@ -3,9 +3,9 @@ import {useDialog} from '../../src/runtime/composables/useDialog';
 const { openDialog , values, closeDialog} = useDialog()
 
 const nav = [
-  { label: 'Hjem', to: '/', styling: 'link' },
-  { label: 'Om os', to: '/', styling: 'link' },
-  { label: 'Hjælp', to: '/', styling: 'primary' },
+  { label: 'Hjem', to: '/', type: 'link' },
+  { label: 'Om os', to: '/', type: 'link' },
+  { label: 'Hjælp', to: '/', type: 'primary' },
 ]
 
 const changeableText = ref('Dette er en tekst som kan ændres')
@@ -41,12 +41,18 @@ const handleDialog2 = async () => {
   }
 }
 
+const stars = {
+  name: 'star',
+  count: 5,
+  size: 20,
+  color: '#EFBF04'
+}
 
 </script>
 
 <template>
   <div class="container">
-    <UiNavigation :navItems="nav" extra>
+    <UiNavigation extra>
       <template #logo>
         <h2>LOGO</h2>
       </template>
@@ -61,7 +67,7 @@ const handleDialog2 = async () => {
             :key="item.label"
             :label="item.label"
             :to="item.to"
-            :styling="item.styling"
+            :type="item.type"
             @click="item.action?.()"
           />
       </template>
@@ -69,9 +75,57 @@ const handleDialog2 = async () => {
 
     <main>
       <div class="center">
+        <UiHeader centered>
+          <template #subtitle><strong>Velkommen til denne side</strong></template>
+          <template #title><h1>Dette er kun til prøvning!</h1></template>
+        </UiHeader>  
+
+        <!-- section that shows what cards can do -->
+        <div class="cards">
+          <UiHeader>
+            <template #subtitle><p>Dette er en sektion for card componentet</p></template>
+            <template #title><h2>Card section</h2></template>
+          </UiHeader>
+
+          <div class="cards--content">
+            <UiCard shadow>
+              <UiHeader centered>
+                <template #subtitle><p>sub title</p></template>
+                <template #title><h2>Card title</h2></template>
+              </UiHeader>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugiat obcaecati omnis blanditiis. In similique ipsum deserunt, distinctio nihil esse beatae fugiat aliquam, architecto modi magnam eum temporibus hic laudantium odio.</p>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A nam illo accusamus fugit necessitatibus quas soluta debitis minus omnis sapiente, consectetur, iusto esse, ex officiis qui eligendi nostrum praesentium optio.</p>
+            </UiCard>
+
+            <UiCard rounded shadow>
+              <UiHeader :icon="stars">
+                <template #subtitle><p>sub title</p></template>
+                <template #title><h2>Card title</h2></template>
+              </UiHeader>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A nam illo accusamus fugit necessitatibus quas soluta debitis minus omnis sapiente, consectetur, iusto esse, ex officiis qui eligendi nostrum praesentium optio.</p>
+              <UiButton label="Knap" />
+            </UiCard>
+          </div>
+        </div>
+
+        <!-- section that shows forms -->
+        <section class="forms">
+          <UiHeader>
+            <template #subtitle><p>Dette er en sektion til forms</p></template>
+            <template #title><h2>Her vises Forms</h2></template>
+          </UiHeader>
+          <article class="forms--content">
+            <UiCard shadow rounded>
+              <UiForm>
+                <UiInput name="fullname" placeholder="Fullname" rounded/>
+                <UiInput placeholder="Email" name="email" transparent rounded/>
+              </UiForm>
+            </UiCard>
+          </article>
+        </section>
+
       </div>
     </main>
-
     <UiDialog />
   </div>
 </template>
@@ -80,8 +134,8 @@ const handleDialog2 = async () => {
 
   .container {
     width: 100vw;
-    height: 100vh;
-    background-color: var(--ui-background-1);
+    min-height: 100vh;
+    background-color: var(--ui-background-primary);
     
     display: flex;
     flex-direction: column;
@@ -108,6 +162,30 @@ const handleDialog2 = async () => {
         flex-direction: column;
         gap: 2rem;
       }
+    }
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &--content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+  }
+
+  .forms {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &--content {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
     }
   }
 </style>

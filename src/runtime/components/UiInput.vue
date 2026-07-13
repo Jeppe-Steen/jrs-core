@@ -1,12 +1,24 @@
 <script setup lang="ts">
-defineProps<{
+import { inject, onMounted } from 'vue'
+
+const form = inject<{
+  register: (name: string) => void
+}>('ui-form')
+
+const props = defineProps<{
+  name: string
   label?: string
   modelValue: string | number
   placeholder?: string
   rounded?: boolean
-  type?: string 
+  transparent?: boolean
+  type?: string
   required?: boolean
 }>()
+
+onMounted(() => {
+  form?.register(props.name)
+})
 
 const emit = defineEmits<{
   'update:modelValue': [value: string]
@@ -20,6 +32,7 @@ const emit = defineEmits<{
     </span>
 
     <input
+      :name="name"
       :value="modelValue"
       :placeholder="placeholder"
       :type="type"
@@ -28,6 +41,7 @@ const emit = defineEmits<{
 
       :class="{
         'rounded': rounded,
+        'transparent': transparent,
       }"
     >
   </label>
@@ -44,13 +58,17 @@ const emit = defineEmits<{
         input {
             width: 100%;
             padding: 1rem;
-            background-color: var(--ui-background-1);
+            background-color: var(--ui-input-background);
+            color: var(--ui-input-color);
             border: none;
-
         }
 
         .rounded {
             border-radius: 10px;
+        }
+
+        .transparent {
+          background-color: transparent !important;
         }
     }
 </style>
