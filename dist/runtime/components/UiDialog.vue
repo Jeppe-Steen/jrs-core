@@ -1,4 +1,5 @@
 <script setup>
+import { useDialog } from "#imports";
 const {
   isOpen,
   component,
